@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajmudra Fintech - Be a Super Trader | SEBI Registered Trading Platform</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #1e293b;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Stock Ticker */
+        .ticker-wrap {
+            background: #0f172a;
+            color: white;
+            padding: 8px 0;
+            border-bottom: 1px solid #334155;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker {
+            display: inline-block;
+            animation: ticker 40s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            margin-right: 30px;
+            font-size: 14px;
+        }
+
+        .ticker-item .symbol {
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        .ticker-item .price {
+            margin: 0 5px;
+        }
+
+        .ticker-item .positive {
+            color: #22c55e;
+        }
+
+        .ticker-item .negative {
+            color: #ef4444;
+        }
+
+        .ticker-item .change {
+            font-size: 12px;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 5%;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #3b82f6;
+        }
+
+        .sebi-badge {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #bfdbfe;
+        }
+
+        .whatsapp-icon {
+            background: #25D366;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .signup-btn {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            padding: 60px 5%;
+            gap: 40px;
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59,130,246,0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            background: linear-gradient(135deg, #dbeafe, #ede9fe);
+            color: #1e40af;
+            padding: 8px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 550px;
+        }
+
+        .feature-pills {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .pill i {
+            color: #3b82f6;
+            font-size: 18px;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 15px 30px -10px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 35px -8px rgba(37, 211, 102, 0.5);
+        }
+
+        .get-started-btn {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 15px 30px -10px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s;
+            margin-top: 20px;
+            margin-right: 15px;
+        }
+
+        .get-started-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 35px -8px rgba(59, 130, 246, 0.5);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            color: #0f172a;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #64748b;
+            margin: 5px 0 0;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-mock {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.2);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mock-header {
+            background: #f8fafc;
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .mock-header span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mock-header span:nth-child(1) { background: #ef4444; }
+        .mock-header span:nth-child(2) { background: #eab308; }
+        .mock-header span:nth-child(3) { background: #22c55e; }
+
+        .mock-content {
+            padding: 20px;
+        }
+
+        .mock-chart {
+            height: 150px;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            opacity: 0.2;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 5%;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .verified-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #22c55e;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            padding: 60px 5%;
+            background: #f8fafc;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #edf2f7;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3b82f6;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        /* Top Features Section */
+        .top-features {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-block {
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #edf2f7;
+            transition: all 0.3s;
+        }
+
+        .feature-block:hover {
+            background: white;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+        }
+
+        .feature-block h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+
+        .feature-desc {
+            color: #475569;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .feature-list li {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #334155;
+            font-size: 15px;
+        }
+
+        .feature-list i {
+            color: #22c55e;
+            font-size: 14px;
+            width: 20px;
+        }
+
+        .join-now-btn {
+            background: transparent;
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        .join-now-btn:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .trade-signal-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #22c55e;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .signal-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .signal-stock {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .signal-profit {
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .signal-details {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #64748b;
+            margin: 10px 0;
+        }
+
+        .signal-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .signal-tag {
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .disclaimer-text {
+            font-size: 10px;
+            color: #94a3b8;
+            margin-top: 20px;
+        }
+
+        /* Community Section */
+        .community-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .community-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #edf2f7;
+            transition: transform 0.3s;
+        }
+
+        .community-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .community-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: #3b82f6;
+        }
+
+        .community-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .community-card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .community-badge {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+
+        /* Membership Plans */
+        .membership-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .plan-card {
+            max-width: 550px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.2);
+            border: 1px solid #e2e8f0;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: scale(1.02);
+        }
+
+        .plan-popular {
+            position: absolute;
+            top: -12px;
+            right: 30px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .plan-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .plan-desc {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .plan-price {
+            font-size: 52px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 20px 0;
+        }
+
+        .plan-price small {
+            font-size: 16px;
+            font-weight: 400;
+            color: #64748b;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .plan-features li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .plan-features i {
+            color: #22c55e;
+            width: 20px;
+        }
+
+        .buy-now-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 16px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .buy-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -10px #3b82f6;
+        }
+
+        .language-badge {
+            text-align: center;
+            margin-top: 20px;
+            color: #64748b;
+            font-size: 14px;
+            background: #f1f5f9;
+            padding: 8px;
+            border-radius: 30px;
+        }
+
+        /* Why Rajmudra Fintech */
+        .why-rajmudra {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            padding: 60px 5%;
+            background: #f8fafc;
+        }
+
+        .why-item {
+            text-align: center;
+        }
+
+        .why-icon {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: #3b82f6;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .why-item h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .why-item p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* Mentor Section */
+        .mentor-section {
+            display: flex;
+            padding: 80px 5%;
+            gap: 60px;
+            align-items: center;
+            background: white;
+            flex-wrap: wrap;
+        }
+
+        .mentor-image {
+            flex: 1;
+            min-width: 300px;
+            height: 450px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+            box-shadow: 0 25px 50px -12px #3b82f6;
+        }
+
+        .mentor-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .mentor-content h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .mentor-name {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .mentor-title {
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .mentor-bio {
+            color: #475569;
+            margin: 25px 0;
+            line-height: 1.8;
+        }
+
+        .mentor-sebi {
+            background: #dbeafe;
+            padding: 10px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        .mentor-whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 20px 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .mentor-whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px #25D366;
+        }
+
+        /* Featured In */
+        .featured-section {
+            padding: 50px 5%;
+            background: #f8fafc;
+            text-align: center;
+        }
+
+        .featured-title {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .featured-logos {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            opacity: 0.7;
+        }
+
+        .featured-logos span {
+            font-weight: 600;
+            color: #334155;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #edf2f7;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .testimonial-title {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .testimonial-text {
+            color: #334155;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            display: flex;
+            justify-content: space-around;
+            padding: 60px 5%;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .banner-stat {
+            text-align: center;
+        }
+
+        .banner-stat h3 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .banner-stat p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 60px 5% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+
+        .footer-desc {
+            color: #94a3b8;
+            line-height: 1.7;
+            margin: 20px 0;
+        }
+
+        .footer-sebi {
+            background: #1e293b;
+            padding: 8px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin: 12px 0;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+            color: #94a3b8;
+        }
+
+        .contact-item a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #1e293b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #3b82f6;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .chat-widget:hover {
+            transform: translateY(-5px);
+        }
+
+        .chat-widget i {
+            font-size: 28px;
+        }
+
+        .chat-widget span {
+            font-weight: 600;
+        }
+
+        .chat-widget small {
+            display: block;
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .section-title { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stock Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span class="ticker-item"><span class="symbol">BHARTIARTL</span> <span class="price">1,803.60</span> <span class="change negative">-2.80 (-0.16%)</span></span>
+            <span class="ticker-item"><span class="symbol">ZOMATO</span> <span class="price">234.55</span> <span class="change positive">+0.16%</span></span>
+            <span class="ticker-item"><span class="symbol">ICICIBANK</span> <span class="price">1,254.30</span> <span class="change negative">-11.80 (-0.93%)</span></span>
+            <span class="ticker-item"><span class="symbol">DLF</span> <span class="price">542.85</span> <span class="change negative">-16.05 (-2.87%)</span></span>
+            <span class="ticker-item"><span class="symbol">INFY</span> <span class="price">1,248.50</span> <span class="change negative">-17.35 (-1.37%)</span></span>
+            <span class="ticker-item"><span class="symbol">HDFC</span> <span class="price">1,142.80</span> <span class="change negative">-82.35 (-6.72%)</span></span>
+            <span class="ticker-item"><span class="symbol">RELIANCE</span> <span class="price">1,380.60</span> <span class="change negative">-11.25 (-0.81%)</span></span>
+            <span class="ticker-item"><span class="symbol">TATAMOTORS</span> <span class="price">817.00</span> <span class="change negative">-15.50 (-1.86%)</span></span>
+            <span class="ticker-item"><span class="symbol">BHARTIARTL</span> <span class="price">1,803.60</span> <span class="change negative">-2.80 (-0.16%)</span></span>
+            <span class="ticker-item"><span class="symbol">ZOMATO</span> <span class="price">234.55</span> <span class="change positive">+0.16%</span></span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <!-- Using the first logo (webp) - replace with your actual path -->
+            <img src="C:\Users\Kishore Tompe\Desktop\Rajmudar Fintech\1000062622.webp" alt="Rajmudra Fintech Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="logo-text" style="display: none;">Rajmudra Fintech</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('features')">Features</a>
+            <a href="#" onclick="showSection('courses')">Courses</a>
+            <a href="#" onclick="showSection('community')">Community</a>
+            <a href="https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I'm%20interested%20in%20Rajmudra%20Fintech's%20trading%20program.%20Can%20you%20share%20more%20details%3F" target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <span class="sebi-badge">SEBI Registered - INH000013925</span>
+            <button class="signup-btn" onclick="window.location.href='https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I%20want%20to%20sign%20up%20for%20Rajmudra%20Fintech.%20Can%20you%20guide%20me%3F'">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home-section">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star" style="margin-right: 5px;"></i> Become A Super Investor with Vishal Patil
+            </div>
+            <h1>Unlock the secrets of the top 1% <span>professional</span> institutional traders</h1>
+            <p>Get unlimited access to powerful institutional trading ideas, in depth trading education and world class technology enabled ecosystem with mentor Vishal Patil.</p>
+            
+            <div class="feature-pills">
+                <div class="pill"><i class="fas fa-chart-line"></i> Trade Like Professional Traders</div>
+                <div class="pill"><i class="fas fa-lightbulb"></i> Powerful Trade Ideas</div>
+                <div class="pill"><i class="fas fa-layer-group"></i> 10+ Trading Strategies</div>
+            </div>
+
+            <button class="get-started-btn" onclick="window.location.href='https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I'm%20interested%20in%20getting%20started%20with%20Rajmudra%20Fintech.%20Can%20you%20share%20more%20details%3F'">Get Started →</button>
+            
+            <a href="https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I%20want%20to%20know%20more%20about%20Rajmudra%20Fintech's%20courses%20and%20membership%20plans." target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>20,000+</h3>
+                    <p>Satisfied Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3>300+</h3>
+                    <p>Hours of Content</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.6/5+</h3>
+                    <p>Avg Rating</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="dashboard-mock">
+                <div class="mock-header">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="mock-content">
+                    <div class="mock-chart"></div>
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                        <div style="flex:1; height: 30px; background: #f1f5f9; border-radius: 5px;"></div>
+                        <div style="flex:1; height: 30px; background: #f1f5f9; border-radius: 5px;"></div>
+                    </div>
+                    <div style="height: 40px; background: #f1f5f9; border-radius: 5px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stat-card">
+            <div class="stat-number">20,000 +</div>
+            <div class="stat-label">Satisfied Clients</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">300 +</div>
+            <div class="stat-label">Hours of Content</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">4.6/5 +</div>
+            <div class="stat-label">Avg Rating</div>
+        </div>
+        <div class="stat-card">
+            <div class="verified-icon"><i class="fas fa-check-circle"></i> SEBI Registered</div>
+        </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="features-grid" id="features-section">
+        <div class="feature-card">
+            <div class="card-icon"><i class="fas fa-university"></i></div>
+            <h3>Trade Like The Institutions</h3>
+            <p>Get ready to level up your trading game with institutional strategies taught by Vishal Patil.</p>
+        </div>
+        <div class="feature-card">
+            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Learn From The Basics</h3>
+            <p>Start from scratch to advanced institutional trading strategies with personalized mentorship.</p>
+        </div>
+        <div class="feature-card">
+            <div class="card-icon"><i class="fas fa-bolt"></i></div>
+            <h3>Lightning Fast Trading Signals</h3>
+            <p>Real-time signals from SEBI Registered experts for all segments delivered on WhatsApp.</p>
+        </div>
+        <div class="feature-card">
+            <div class="card-icon"><i class="fas fa-video"></i></div>
+            <h3>Live Trading Stream</h3>
+            <p>Trade live with Vishal Patil and professional institutional traders everyday.</p>
+        </div>
+        <div class="feature-card">
+            <div class="card-icon"><i class="fas fa-headset"></i></div>
+            <h3>Priority Customer Support</h3>
+            <p>Dedicated relationship manager 24x7, 365 days support on WhatsApp.</p>
+        </div>
+    </section>
+
+    <!-- Top Features Section -->
+    <section class="top-features">
+        <h2 class="section-title">Top Features</h2>
+        <div class="features-container">
+            <!-- World Class Education -->
+            <div class="feature-block">
+                <h3>World Class Education</h3>
+                <p class="feature-desc">Learn professional institutional trading from the absolute basics with Vishal Patil. Experience the world of smart money concepts.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Learn 10+ institutional trading strategies</li>
+                    <li><i class="fas fa-check-circle"></i> We teach equity, futures, options, commodities & forex trading</li>
+                    <li><i class="fas fa-check-circle"></i> Attend weekly live webinars and interactive Q&A sessions</li>
+                    <li><i class="fas fa-check-circle"></i> Course available in English, Hindi & Marathi</li>
+                </ul>
+                <button class="join-now-btn" onclick="window.location.href='https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I'm%20interested%20in%20the%20World%20Class%20Education%20program.%20Can%20you%20share%20more%20details%3F'">Join Now</button>
+            </div>
+
+            <!-- Realtime Trading Signals -->
+            <div class="feature-block">
+                <h3>Realtime Trading Signals & Alerts</h3>
+                <p class="feature-desc">Get lightning fast trading & investing signals and callouts from SEBI registered trading experts directly on WhatsApp</p>
+                
+                <div class="trade-signal-card">
+                    <div class="signal-header">
+                        <span class="signal-stock">JSWENERGY</span>
+                        <span class="signal-profit">+29.40%</span>
+                    </div>
+                    <div class="signal-details">
+                        <span>Entry: 523.55</span>
+                        <span>Target: 240.50</span>
+                        <span>SL: 210.50</span>
+                    </div>
+                    <div class="signal-tags">
+                        <span class="signal-tag">NSE</span>
+                        <span class="signal-tag">27 MAR</span>
+                        <span class="signal-tag">CALL</span>
+                    </div>
+                </div>
+
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Live signals for intraday, swing and positional trading</li>
+                    <li><i class="fas fa-check-circle"></i> We cover the cash, futures & options and commodities market</li>
+                    <li><i class="fas fa-check-circle"></i> High win rate with an average reward to risk ratio of 2.5x</li>
+                    <li><i class="fas fa-check-circle"></i> Instant WhatsApp alerts on 7020408147</li>
+                </ul>
+                <div class="disclaimer-text">Past performance is not indicative of future performance. Returns are not guaranteed, they can change with market conditions.</div>
+                <button class="join-now-btn" style="margin-top: 20px;" onclick="window.location.href='https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I'm%20interested%20in%20your%20Realtime%20Trading%20Signals%20service.%20Can%20you%20share%20more%20details%3F'">Join Now</button>
+            </div>
+
+            <!-- Live Trading Everyday -->
+            <div class="feature-block">
+                <h3>Live Trading Everyday</h3>
+                <p class="feature-desc">Trade live with Vishal Patil and professional traders in stocks, indices & commodities.</p>
+                
+                <div style="background: #e2e8f0; height: 120px; border-radius: 10px; margin: 20px 0; display: flex; align-items: center; justify-content: center; color: #475569;">
+                    <i class="fas fa-video" style="font-size: 30px; margin-right: 10px;"></i> Live Trading with Vishal Patil
+                </div>
+
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Live trading via screen sharing with our research analysts</li>
+                    <li><i class="fas fa-check-circle"></i> Ask your stock related queries in real time with Vishal Patil</li>
+                    <li><i class="fas fa-check-circle"></i> Apply institutional trading strategies LIVE with SEBI Registered Experts</li>
+                    <li><i class="fas fa-check-circle"></i> Daily live trading from 9:30am - 3:30pm</li>
+                </ul>
+                <button class="join-now-btn" onclick="window.location.href='https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I'm%20interested%20in%20joining%20the%20Live%20Trading%20sessions.%20Can%20you%20share%20more%20details%3F'">Join Now</button>
+            </div>
+
+            <!-- Collaborate & Network -->
+            <div class="feature-block">
+                <h3>Collaborate & Network With India's Top Traders</h3>
+                <p class="feature-desc">Become a part of India's Largest SEBI Registered Trading Community with 20,000+ Professional Traders.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Network with the top 1% traders & investors in India</li>
+                    <li><i class="fas fa-check-circle"></i> Explore new and innovative trading styles</li>
+                    <li><i class="fas fa-check-circle"></i> Access daily watchlist, screeners and scanners</li>
+                    <li><i class="fas fa-check-circle"></i> Interact with industry expert Vishal Patil to improve your performance</li>
+                </ul>
+                <button class="join-now-btn" onclick="window.location.href='https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I'm%20interested%20in%20joining%20the%20trading%20community.%20Can%20you%20share%20more%20details%3F'">Join Now</button>
+            </div>
+
+            <!-- A.I Powered -->
+            <div class="feature-block">
+                <h3>A.I Powered Automatic Trade Management</h3>
+                <p class="feature-desc">Unleash the power of artificial intelligence in stock trading & investing.</p>
+                
+                <div style="background: #dbeafe; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Order Filled</span>
+                        <span class="signal-profit">+3.73%</span>
+                    </div>
+                    <div style="display: flex; gap: 20px; font-size: 13px;">
+                        <span>Entry: 2844</span>
+                        <span>Target: 2967</span>
+                        <span>+10K Shares</span>
+                    </div>
+                </div>
+
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Smart position size calculator</li>
+                    <li><i class="fas fa-check-circle"></i> AI powered news & market updates</li>
+                    <li><i class="fas fa-check-circle"></i> Fully automated trading</li>
+                    <li><i class="fas fa-check-circle"></i> Powerful insights on trading & investing performance</li>
+                </ul>
+                <button class="join-now-btn" onclick="window.location.href='https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I'm%20interested%20in%20the%20AI%20Powered%20trading%20tools.%20Can%20you%20share%20more%20details%3F'">Join Now</button>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background: #f1f5f9; border-radius: 10px; font-size: 11px; color: #64748b;">
+            <p>Disclaimer: Investing in securities are subject to market risk. Past performance is not indicative of future performance. Registration granted by SEBI and certification from NISM in no way guarantees performance of the intermediary or provides any assurance of returns to investors.</p>
+        </div>
+    </section>
+
+    <!-- Join India's Smartest Traders -->
+    <section class="community-section" id="community-section">
+        <h2 class="section-title">Join India's Smartest Traders & Investors</h2>
+        <p class="section-subtitle">We have pioneered and disrupted community based trading & investing format where you trade, learn and collaborate with traders across India under mentor Vishal Patil.</p>
+
+        <div class="community-grid">
+            <div class="community-card">
+                <div class="community-icon"><i class="fas fa-users"></i></div>
+                <h3>Connect With Professional Traders & Investors</h3>
+                <p>Our exclusive voice chat and live stream technology enables you to share, discuss and execute trades in real time with other traders.</p>
+            </div>
+            <div class="community-card">
+                <div class="community-icon"><i class="fas fa-globe"></i></div>
+                <h3>Explore Multi Asset Trading & Investing</h3>
+                <p>We trade & invest in global assets ranging from indian & american equities to commodities like gold, silver.</p>
+            </div>
+            <div class="community-card">
+                <div class="community-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>SEBI Registered Research & Advisory</h3>
+                <p>Get powerful and actionable research and insights from SEBI registered experts to help you ace the markets.</p>
+            </div>
+            <div class="community-card">
+                <div class="community-icon"><i class="fas fa-brain"></i></div>
+                <h3>A.I Generated News & Market Updates</h3>
+                <p>Get access to institution grade news catalysts that has the power to generate big moves in the market.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <div class="community-badge">
+                <i class="fas fa-check-circle"></i> We are India's Largest SEBI registered trading community.
+            </div>
+            <p style="font-size: 20px; font-weight: 600; margin: 20px 0;">We help everyone become Super Traders.</p>
+            <a href="https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I'm%20interested%20in%20joining%20the%20community.%20Can%20you%20share%20more%20details%3F" target="_blank" class="whatsapp-btn" style="margin-top: 10px;">Join Now on WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Membership Plans -->
+    <section class="membership-section" id="courses-section">
+        <h2 class="section-title">Membership Plans</h2>
+        <p class="section-subtitle">We empower a new generation of traders and investors with world class technology, institution grade education and professional advisory services.</p>
+
+        <div class="plan-card">
+            <div class="plan-popular">Most Popular</div>
+            <h3 class="plan-title">VIP Lifetime Membership</h3>
+            <p class="plan-desc">Designed for serious traders and investors who want to become full time traders with mentorship from Vishal Patil.</p>
+            <div class="plan-price">₹ 39,999 <small>Inclusive of 18% GST</small></div>
+            
+            <h4 style="margin-bottom: 15px;">Includes:</h4>
+            <ul class="plan-features">
+                <li><i class="fas fa-check-circle"></i> Super Trader Course with Live & Pre Recorded Sessions</li>
+                <li><i class="fas fa-check-circle"></i> Daily Trading & Investing Signals in Cash, F&O, Commodities Segment for Lifetime</li>
+                <li><i class="fas fa-check-circle"></i> Daily LIVE Trading with Vishal Patil and SEBI Registered Experts</li>
+                <li><i class="fas fa-check-circle"></i> Lifetime Doubt Support on WhatsApp</li>
+                <li><i class="fas fa-check-circle"></i> Access to 10+ Institutional Trading Strategies</li>
+                <li><i class="fas fa-check-circle"></i> Access to Rajmudra Fintech Trading App</li>
+                <li><i class="fas fa-check-circle"></i> Access to 80+ Institutional Screeners and Scanners</li>
+                <li><i class="fas fa-check-circle"></i> Personal mentorship from Vishal Patil</li>
+            </ul>
+
+            <button class="buy-now-btn" onclick="window.location.href='https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I'm%20interested%20in%20the%20VIP%20Lifetime%20Membership%20at%20%E2%82%B9%2039%2C999.%20Can%20you%20guide%20me%20through%20the%20enrollment%20process%3F'">Buy Now</button>
+            <div class="language-badge">
+                <i class="fas fa-language"></i> Available In English, Hindi & Marathi
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Rajmudra Fintech -->
+    <section class="why-rajmudra">
+        <div class="why-item">
+            <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+            <h4>We are SEBI Registered Experts</h4>
+            <p>INH000013925</p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon"><i class="fas fa-robot"></i></div>
+            <h4>AI-Engine</h4>
+            <p>Powered By The Most Powerful A.I Trading Tools</p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon"><i class="fas fa-users"></i></div>
+            <h4>20,000+</h4>
+            <p>Active Pro Traders & Investors</p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon"><i class="fas fa-video"></i></div>
+            <h4>Daily Live Trading</h4>
+            <p>Stream Live With Vishal Patil, Everyday</p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon"><i class="fas fa-chart-pie"></i></div>
+            <h4>Verified P&L</h4>
+            <p>Shared Everyday With Verified Trade Executions</p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon"><i class="fas fa-coins"></i></div>
+            <h4>125+ Crores</h4>
+            <p>Daily Community Wide Trading Turnover</p>
+        </div>
+    </section>
+
+    <!-- Mentor Section -->
+    <section class="mentor-section">
+        <div class="mentor-image">
+            <i class="fas fa-user-tie fa-5x"></i>
+        </div>
+        <div class="mentor-content">
+            <h2>Meet Your Mentor</h2>
+            <div class="mentor-name">Vishal Patil</div>
+            <div class="mentor-title">Founder & Mentor, Rajmudra Fintech</div>
+            <p class="mentor-bio">Hello everyone! I'm Vishal Patil, a SEBI and NISM registered and certified research analyst. I have over 10 years of trading and investing experience, specializing in institutional stock trading. My educational background is rich in the finance domain, including an MBA in Finance. I'm passionate about making institutional trading accessible to everyone through personalized mentorship.</p>
+            
+            <a href="https://wa.me/917020408147?text=Hi%20Vishal%20Sir%2C%20I'm%20interested%20in%20your%20mentorship%20program.%20Can%20you%20guide%20me%3F" target="_blank" class="mentor-whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Chat with Vishal Patil
+            </a>
+            
+            <div class="mentor-sebi">
+                <i class="fas fa-check-circle" style="color: #22c55e;"></i> SEBI Registered Research Analyst - INH000013925
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured In -->
+    <section class="featured-section">
+        <div class="featured-title">As Featured In</div>
+        <div class="featured-logos">
+            <span>CNBC</span>
+            <span>ThePrint</span>
+            <span>FINANCIAL EXPRESS</span>
+            <span>TIMES OF INDIA</span>
+            <span>Business Standard</span>
+            <span>TEDx</span>
+            <span>Hindustan Times</span>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <h2 class="section-title">Customer Testimonials</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">M</div>
+                    <div>
+                        <div class="testimonial-name">Madhav, Lawyer</div>
+                        <div class="testimonial-title">Verified Client</div>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Truly Game Changing. I Will Never Use Retail Trading Concepts, Ever. Vishal Sir explained how the markets really work as opposed to the half baked knowledge I had after watching YouTube Videos. Such an eye opener."</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">A</div>
+                    <div>
+                        <div class="testimonial-name">Abhishek</div>
+                        <div class="testimonial-title">Trader</div>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Mind Blowing! This Was The Best Trading Webinar I Have Ever Attended. The way Vishal Sir explains things shows the kind of time and energy he has spent in trading. Absolutely loved it!"</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">P</div>
+                    <div>
+                        <div class="testimonial-name">Prashil</div>
+                        <div class="testimonial-title">Investor</div>
+                    </div>
+                </div>
+                <p class="testimonial-text">"This Workshop Transformed My Approach to Trading. I cannot express enough gratitude to Vishal Sir and the incredible team at Rajmudra Fintech. The personal mentorship is invaluable."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="banner-stat">
+            <h3>100K+</h3>
+            <p>Traders transformed their lives</p>
+        </div>
+        <div class="banner-stat">
+            <h3>#1</h3>
+            <p>Fastest growing SEBI platform</p>
+        </div>
+        <div class="banner-stat">
+            <h3>4.6+</h3>
+            <p>Average user rating</p>
+        </div>
+        <div class="banner-stat">
+            <h3>250+ Cr</h3>
+            <p>Daily trading turnover</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <!-- Using the second logo (png) for footer - replace with your actual path -->
+                    <img src="C:\Users\Kishore Tompe\Desktop\Rajmudar Fintech\1000064446.png" alt="Rajmudra Fintech" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span style="display: none; font-size: 20px; font-weight: 700;">Rajmudra Fintech</span>
+                </div>
+                <p class="footer-desc">Welcome to India's largest SEBI registered trading & investing platform. We offer education & research services with personalized mentorship from Vishal Patil.</p>
+                <div class="footer-sebi">
+                    <i class="fas fa-check-circle" style="color: #22c55e;"></i> SEBI Registered Research Analyst INH000013925
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company Details</h4>
+                <ul class="footer-links">
+                    <li>Company Name: Rajmudra Fintech</li>
+                    <li>GSTIN: 08AEXFS2211L1ZJ</li>
+                    <li>SEBI Registration: INH000013925</li>
+                    <li>License Validity: Dec 04, 2023 - Perpetual</li>
+                    <li>Compliance Officer: Vishal Patil</li>
+                    <li>Contact: <a href="https://wa.me/917020408147?text=Hi%2C%20I'm%20interested%20in%20Rajmudra%20Fintech" target="_blank">+91-7020408147</a></li>
+                    <li>Nodal Officer: Madhur Sancheti</li>
+                    <li>Contact: +91-9414535030</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showSection('home')">About Us</a></li>
+                    <li><a href="#" onclick="showSection('courses')">Membership</a></li>
+                    <li><a href="#" onclick="showSection('features')">Features</a></li>
+                    <li><a href="#" onclick="showSection('community')">Community</a></li>
+                    <li><a href="#" onclick="showSection('contact')">Contact Us</a></li>
+                    <li><a href="#">Investor Charter</a></li>
+                    <li><a href="#">Complaints</a></li>
+                    <li><a href="#">SEBI Audit Report</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+917020408147">+91-7020408147</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>9:00 am to 6:00 pm (Mon - Sat)</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/917020408147?text=Hi%2C%20I'm%20interested%20in%20Rajmudra%20Fintech" target="_blank">+91-7020408147</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:help@RajmudraFintech.com">help@RajmudraFintech.com</a>
+                </div>
+
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            Copyright ©2026 Rajmudra Fintech. All rights reserved. | Mentor: Vishal Patil | WhatsApp: 7020408147
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <a href="https://wa.me/917020408147?text=Hi%20Vishal%20Patil%2C%20I'm%20interested%20in%20Rajmudra%20Fintech.%20Can%20you%20share%20more%20details%20about%20the%20courses%20and%20membership%3F" target="_blank" class="chat-widget">
+        <i class="fab fa-whatsapp"></i>
+        <div>
+            <span>Chat with Vishal Patil</span>
+            <small>Reply within minutes</small>
+        </div>
+    </a>
+
+    <script>
+        // Simple script to handle active navigation and section visibility
+        function showSection(sectionId) {
+            // Remove active class from all links
+            document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+            
+            // Add active class to clicked link
+            event.target.classList.add('active');
+            
+            // You can add logic here to show/hide sections if needed
+            console.log('Navigating to: ' + sectionId);
+            
+            // Smooth scroll to section if it exists
+            const section = document.getElementById(sectionId + '-section');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Handle logo fallback
+        document.querySelectorAll('img[onerror]').forEach(img => {
+            img.onerror = function() {
+                this.style.display = 'none';
+                if (this.nextElementSibling) {
+                    this.nextElementSibling.style.display = 'block';
+                }
+            };
+        });
+    </script>
+</body>
+</html>
